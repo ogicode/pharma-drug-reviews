@@ -8,6 +8,11 @@ targets:
     workspace:
       host: https://dbc-77b9262b-fdb2.cloud.databricks.com
 
+  prod:
+    workspace:
+      host: https://dbc-77b9262b-fdb2.cloud.databricks.com
+      root_path: /Workspace/Users/ognjen.antonic1997@gmail.com/.bundle/${bundle.name}/prod
+
 resources:
   jobs:
     hello_job:
@@ -16,3 +21,13 @@ resources:
         - task_key: hello
           notebook_task:
             notebook_path: ./hello.py
+
+    ingest_fda_job:
+      name: ingest_fda_job
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: Europe/Vienna
+      tasks:
+        - task_key: ingest
+          notebook_task:
+            notebook_path: ./ingest_fda.py
