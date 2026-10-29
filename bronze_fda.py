@@ -10,4 +10,5 @@ df = (spark.read.option("multiline", True).json("/Volumes/workspace/pharma/volum
       # when the row was loaded
       .withColumn("ingested_at", current_timestamp()))
 
-df.write.mode("overwrite").saveAsTable("workspace.pharma.bronze_fda_events")
+# overwriteSchema: FDA JSON shape can change, so replace the table schema
+df.write.mode("overwrite").option("overwriteSchema", True).saveAsTable("workspace.pharma.bronze_fda_events")
