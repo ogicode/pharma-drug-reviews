@@ -6,3 +6,8 @@ Where each happens
 Volume > bronze: load everything, no filtering. Bronze is the raw truth, you want even bad rows kept.
 Bronze table checks: fail = stop job, warn = log
 Bronze > silver: split rows into silver and quarantine
+
+# uploads your .py files to the workspace
+databricks bundle deploy -p ogicode
+# runs tasks
+databricks bundle run ingest_fda_job -p ogicode

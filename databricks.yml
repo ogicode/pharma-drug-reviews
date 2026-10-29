@@ -25,7 +25,12 @@ resources:
     ingest_fda_job:
       name: ingest_fda_job
       tasks:
+        - task_key: ingest
+          notebook_task:
+            notebook_path: ./ingest_fda.py
         - task_key: bronze
+          depends_on:
+            - task_key: ingest
           notebook_task:
             notebook_path: ./bronze_fda.py
         - task_key: silver
@@ -33,8 +38,8 @@ resources:
             - task_key: bronze
           notebook_task:
             notebook_path: ./silver_fda.py
-        - task_key: gold
-          depends_on:
-            - task_key: silver
-          notebook_task:
-            notebook_path: ./gold_fda.py
+        # - task_key: gold
+        #   depends_on:
+        #     - task_key: silver
+        #   notebook_task:
+        #     notebook_path: ./gold_fda.py
