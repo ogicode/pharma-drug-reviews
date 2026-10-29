@@ -1,6 +1,5 @@
 # Databricks notebook source
 # Bronze: load all raw FDA JSON files from the volume into a table as is.
-# No filtering, bad rows are kept. Bronze is the raw truth.
 from pyspark.sql.functions import explode, current_timestamp
 
 df = (spark.read.option("multiline", True).json("/Volumes/workspace/pharma/volume/fda_*.json")
