@@ -15,13 +15,6 @@ targets:
 
 resources:
   jobs:
-    hello_job:
-      name: hello_job
-      tasks:
-        - task_key: hello
-          notebook_task:
-            notebook_path: ./hello.py
-
     ingest_fda_job:
       name: ingest_fda_job
       tasks:
