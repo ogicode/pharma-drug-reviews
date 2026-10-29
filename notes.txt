@@ -1,3 +1,8 @@
 run py
 run sql
 add the farma source
+Where each happens
+
+Volume > bronze: load everything, no filtering. Bronze is the raw truth, you want even bad rows kept.
+Bronze table checks: fail = stop job, warn = log
+Bronze > silver: split rows into silver and quarantine
