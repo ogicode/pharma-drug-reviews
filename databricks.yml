@@ -17,6 +17,10 @@ resources:
   jobs:
     ingest_fda_job:
       name: ingest_fda_job
+      # every day at 06:00 Vienna time
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: Europe/Vienna
       tasks:
         - task_key: ingest
           notebook_task:
