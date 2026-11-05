@@ -1,0 +1,3 @@
+Bronze: raw data, as is. Your FDA JSON files loaded into a table with no changes, plus file name and load time.
+Silver: clean data. Proper types (dates, ints), renamed columns, duplicates removed, bad rows moved to quarantine. One row per report and drug.
+Gold: business answers. Small aggregated tables ready for Power BI, e.g. “serious reports per drug per month” or “top reactions per drug”.
